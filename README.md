@@ -1,56 +1,50 @@
-# Household-Electricity-Consumption-Prediction
+# Household Electricity Consumption Prediction
 
-Project Overview
+Build a baseline model for predicting Global Active Power from household electricity measurements.
 
-This project focuses on predicting household electricity consumption using Linear Regression. The goal is to predict the “Global Active Power” based on historical data of other power and voltage features. This project demonstrates skills in time series data processing and regression modeling.
+## Why this project
 
-Dataset
+This repository is part of my practical machine-learning portfolio. It focuses on a complete, understandable workflow rather than claiming production readiness.
 
-The dataset used is the Household Electric Power Consumption dataset from the UCI Machine Learning Repository. It contains features like voltage, global intensity, and different types of sub-metered power consumption readings.
+## Dataset
 
-Key Features
+The repository includes `household_power_consumption.zip`. The README identifies the UCI Household Electric Power Consumption dataset; retain the original attribution and license.
 
-The main features used in this project include:
- • Global Reactive Power
- • Voltage
- • Global Intensity
- • Sub-metering values (Sub_metering_1, Sub_metering_2, Sub_metering_3)
+## Approach
 
-The target variable is Global Active Power, representing the primary household power usage.
+Data cleaning, numeric conversion, an 80/20 split, and Linear Regression.
 
-Steps in the Project
+### Features
 
-Step 1: Import Libraries
+Global Reactive Power, Voltage, Global Intensity, and sub-metering values. Date and time are currently excluded from the model.
 
-Libraries like pandas, NumPy, matplotlib, and scikit-learn are imported to handle data manipulation, modeling, and visualization.
+## Evaluation and current result
 
-Step 2: Data Import and Cleaning
+Residual Sum of Squares and explained variance are calculated in the notebook. Add a clearly named test-set score and units to this README after validating the split.
 
- • The dataset is imported, and unnecessary columns (Date and Time) are removed.
- • Missing or invalid values are replaced with 0, and all columns are converted to float type for modeling.
+## Run locally
 
-Step 3: Split the Data
+```bash
+git clone https://github.com/MeehdiF/Household-Electricity-Consumption-Prediction.git
+cd Household-Electricity-Consumption-Prediction
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python untitled.py
+```
 
-Data is split into training and testing sets (80-20 split) to assess the model’s accuracy on unseen data.
+For notebook exploration, open the `.ipynb` file with Jupyter after installing the same dependencies.
 
-Step 4: Model Creation
+## Limitations and next steps
 
-Linear Regression is used as the model for initial experimentation.
+Removing date and time prevents the model from learning temporal structure. Replacing missing values with zero may distort measurements; future work should use time-aware validation and compare lag-based or dedicated time-series models.
 
-Step 5: Model Training
+## Repository structure
 
-The model is trained on the training dataset, and the coefficients are printed.
+- `README.md` — project context and reproducibility notes
+- `requirements.txt` — Python dependencies used by the scripts
+- `.ipynb` / `.py` files — analysis and model experiments
 
-Step 6: Prediction and Evaluation
+## License
 
- • Predictions are made on the test set.
- • Evaluation metrics include the Residual Sum of Squares and the Variance Score.
-
-Results
-
-The linear regression model provides a baseline prediction of household electricity consumption. Future improvements could involve exploring LSTM or other time series models for better accuracy in predictions over time.
-
-Requirements
-
- • Python 3.x
- • Libraries: pandas, NumPy, scikit-learn, matplotlib
+See [`LICENSE`](LICENSE). Check the dataset's own terms separately; repository code licensing does not automatically license bundled data.
